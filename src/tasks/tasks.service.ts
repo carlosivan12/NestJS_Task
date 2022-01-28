@@ -13,7 +13,7 @@ export class TasksService {
     private tasksRepository: TaskRepository,
   ) {}
 
-  getTasks(filterDto: GetTaskFilterDto): Promise<Task[]>{
+  getTasks(filterDto: GetTaskFilterDto): Promise<Task[]> {
     return this.tasksRepository.getTasks(filterDto);
   }
 
@@ -29,7 +29,7 @@ export class TasksService {
     return this.tasksRepository.createtask(createTaskDto);
   }
 
-  async deleteTask(id: string): Promise<void>{
+  async deleteTask(id: string): Promise<void> {
     const result = await this.tasksRepository.delete(id);
 
     if (result.affected === 0) {
@@ -37,7 +37,7 @@ export class TasksService {
     }
   }
 
-  async updateTaskStatus(id: string, status: TaskStatus): Promise<Task>{
+  async updateTaskStatus(id: string, status: TaskStatus): Promise<Task> {
     const task = await this.getTaskById(id);
     task.status = status;
     await this.tasksRepository.save(task);

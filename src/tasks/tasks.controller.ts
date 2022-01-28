@@ -45,6 +45,5 @@ export class TasksController {
   ): Promise<Task> {
     const { status } = updateTaskStatus;
     return this.tasksService.updateTaskStatus(id, status);
-  } 
-
+  }
 }
